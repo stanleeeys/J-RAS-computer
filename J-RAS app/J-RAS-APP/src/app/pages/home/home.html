@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<section class="hero-section">
+  <div class="hero-content">
+    <h2>Computer And Laptop</h2>
+    <h1><b>Accessories</b></h1>
+
+    <div class="hero-buttons">
+      <button class="hero-btn">Buy Now</button>
+      <button class="hero-btn outline">Contact</button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img [src]="images[currentIndex]" alt="Computers and Laptops">
+
+    <div class="hero-dots">
+      <span
+        class="dot"
+        *ngFor="let img of images; let i = index"
+        [class.active]="i === currentIndex">
+      </span>
+    </div>
+  </div>
+</section>
+<section class="products-section">
+  <h2 class="products-title">OUR PRODUCTS</h2>
+  <div class="products-grid">
+    <div class="product-item">
+      <img src="images/product1.png" alt="Computer">
+      <div class="product-label">Computer</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product2.png" alt="Laptop">
+      <div class="product-label">Laptop</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product3.png" alt="Tablet">
+      <div class="product-label">Tablet</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product4.png" alt="Speakers">
+      <div class="product-label">Speakers</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product5.png" alt="Internet">
+      <div class="product-label">Internet</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product6.png" alt="Hardisk">
+      <div class="product-label">Hardisk</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product7.png" alt="Rams">
+      <div class="product-label">Rams</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product8.png" alt="Bettery">
+      <div class="product-label">Bettery</div>
+    </div>
+    <div class="product-item">
+      <img src="images/product9.png" alt="Drive">
+      <div class="product-label">Drive</div>
+    </div>
+  </div>
+  <div class="products-more">
+    <button class="see-more-btn" (click)="scrollToTop()">See More</button>
+  </div>
+</section>

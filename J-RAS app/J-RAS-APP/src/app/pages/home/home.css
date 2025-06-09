@@ -1,0 +1,141 @@
+/* HERO SECTION */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #e0eaff 0%, #b2cfff 100%);
+  color: #232946;
+  min-height: 90vh;
+  padding: 0 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #4f8cff;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #00c9a7;
+}
+
+.hero-content .brand {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #6e7a90;
+}
+
+.hero-btn {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-btn.outline {
+  background: transparent;
+  color: #4f8cff;
+  border: 2px solid #4f8cff;
+}
+
+.hero-btn:hover {
+  background: #00c9a7;
+  color: #fff;
+  border-color: #00c9a7;
+}
+
+/* Dots */
+.hero-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #b2cfff;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.hero-dots .dot.active {
+  background: #00c9a7;
+  opacity: 1;
+}
+
+/* PRODUCTS SECTION */
+.products-section {
+  background: #f5f7fa;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232946;
+  margin-bottom: 32px;
+  border-bottom: 3px solid #00c9a7;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 80px;
+  background: #fff;
+  padding: 60px 80px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(76, 110, 245, 0.06);
+}
+
+.product-item img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.product-label {
+  background: #4f8cff;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 32px;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.products-more {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.see-more-btn {
+  background: transparent;
+  color: #00c9a7;
+  border: 2px solid #00c9a7;
+  border-radius: 4px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.see-more-btn:hover {
+  background: #00c9a7;
+  color: #fff;
+}
