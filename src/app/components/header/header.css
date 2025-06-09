@@ -18,14 +18,18 @@
 }
 
 .logo img {
-  height: 48px;
+  height: 60px;
   border-radius: 50%;
-  background: #fff;
-  border: 2px solid #43e97b;
-  padding: 3px;
   box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
 }
-
+.span {
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 5px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
 .main-nav {
   display: flex;
   gap: 32px;
