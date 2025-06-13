@@ -1,4 +1,83 @@
 
 <app-header></app-header>
-<p>Contact Us works!</p>
+<section class="contact-section">
+  <div class="contact-container">
+    <h2>Contact us</h2>
+    <p>Do you have questions about our products? Write to us!</p>
+
+    <form *ngIf="!submitted" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" formControlName="name" placeholder="Your name">
+        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error">
+          Minimum 3 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="your@email.com">
+        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error">
+          Invalid email
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" formControlName="phone" placeholder="1234567890">
+        <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" class="error">
+          10 digits required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" formControlName="subject">
+          <option value="Consulta">General Inquiry</option>
+          <option value="Soporte">Technical Support</option>
+          <option value="Ventas">Sales Questions</option>
+          <option value="Garantía">Warranty and Returns</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" formControlName="message" rows="5" placeholder="Write your message here..."></textarea>
+        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error">
+          Minimum 10 characters
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="contactForm.invalid || loading" class="submit-btn">
+        <span *ngIf="!loading">Send Message</span>
+        <span *ngIf="loading">Sending...</span>
+      </button>
+    </form>
+
+    <div *ngIf="submitted" class="success-message">
+      <h3>Thank you for contacting us!</h3>
+      <p>We have received your message and will respond within 24 hours.</p>
+      <button routerLink="/" class="home-btn">Back to Home</button>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Address</h3>
+        <p>Av. Morazan #1234, Chalatenango</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-phone"></i>
+        <h3>CellPhone</h3>
+        <p>+503 2203-4567</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p>contact&#64;jras-tech.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
 

@@ -86,3 +86,38 @@
     gap: 18px;
   }
 }
+.app-header {
+  /* Mantén tus estilos existentes */
+
+  .main-nav {
+    position: relative;
+
+    .nav-links-container {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .nav-indicator {
+ height: 2px;
+  background: linear-gradient(90deg, #3f51b5, #2196f3);
+  box-shadow: 0 2px 5px rgba(63, 81, 181, 0.3);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    a {
+      position: relative;
+      padding: 0.5rem 0;
+
+      &.active-page {
+        color: #3f51b5;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .login a.active-page {
+    color: #3f51b5;
+    font-weight: 500;
+  }
+}

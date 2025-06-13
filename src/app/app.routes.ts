@@ -5,6 +5,8 @@ import { ComputerComponent } from './pages/computer/computer';
 import { LaptopComponent } from './pages/laptop/laptop';
 import { Category } from './pages/category/category';
 import { ContactUs } from './pages/contact-us/contact-us';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
 
 
 export const routes: Routes = [
@@ -12,7 +14,13 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'computer', component: ComputerComponent},
   {path: 'laptop', component: LaptopComponent},
-  {path: 'products', component: Category},
-  {path: 'contact', component: ContactUs}
+  {path: 'category', component: Category},
+  {path: 'contact', component: ContactUs},
+  {path: 'Login', component: Login},
+  {path: 'register',component: Register},
+  {
+   path: 'cart',
+  loadComponent: () => import('./pages/cart/cart').then(m => m.CartComponent)
+  }
 
 ];

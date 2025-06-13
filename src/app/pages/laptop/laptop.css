@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: 'Heebo', sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+/*Es para darle un mejor estilo al filtrado de productos*/
+.buscador {
+  text-align: center;
+  margin: 20px;
+}
+
+.buscador input {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
+/*Para el color de encabezado*/
+.titulo {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 36px;
+  background-color: #1e88e5;
+  color: white;
+  margin: 0;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  perspective: 1000px; /* Necesario para 3D */
+}
+
+.producto {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.producto:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  padding: 20px;
+  text-align: center;
+}
+
+.info h2 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.info p {
+  color: #666;
+  font-size: 14px;
+}
+
+.info span {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #1e88e5;
+}
+
+@media (max-width: 600px) {
+  .productos {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .titulo {
+    font-size: 28px;
+  }
+}

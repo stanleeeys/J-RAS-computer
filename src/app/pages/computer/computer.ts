@@ -2,10 +2,12 @@ import { Component, ElementRef, Renderer2, ViewChild, AfterViewInit } from '@ang
 import { Header } from "../../components/header/header";
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Footer } from '../../components/footer/footer';
+import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-computer',
-  imports: [CommonModule,Header],
+  imports: [CommonModule,Header, Footer],
   standalone: true,
   templateUrl: './computer.html',
   styleUrl: './computer.css'
@@ -14,76 +16,76 @@ export class ComputerComponent {
   @ViewChild('buscarInput') buscarInput!: ElementRef;
 productos = [
   {
-    nombre: 'HP ProBook 450 G7',
+    nombre: 'Cyber tower',
     descripcion: 'Intel i5 · 8GB RAM · 256GB SSD',
-    precio: '$599.99',
-    imagen: 'imgproductos/laptop-murjp1nk4lp1idlt.jpg'
+    precio: '$799.99',
+    imagen: 'imgComputers/cybertower.png'
   },
   {
-    nombre: 'Dell Inspiron 15',
+    nombre: 'Cyber tower',
     descripcion: 'Intel i7 · 16GB RAM · 512GB SSD',
-    precio: '$849.99',
-    imagen: 'imgproductos/b90064d71416de5e74f19c6f05e45eb07d904f77.jpeg'
+    precio: '$949.99',
+    imagen: 'imgComputers/cybertowers2.png'
   },
   {
-    nombre: 'HP Notebook',
-    descripcion: 'Intel i5 · 8GB RAM · 64GB SSD',
+    nombre: 'HP OWEN',
+    descripcion: 'Intel i9 · 32GB RAM · 1TB SSD',
     precio: '$399.99',
-    imagen: 'imgproductos/7.jpg'
+    imagen: 'imgComputers/HP OWEN.png'
   },
   {
-    nombre: 'Laptop Apple Macbook Air',
+    nombre: 'MSI',
     descripcion: 'Intel Core i7 128GB 12GB RAM',
     precio: '$1249.99',
-    imagen: 'imgproductos/photo-1517336714731-489689fd1ca8.jpg'
+    imagen: 'imgComputers/MSI.png'
   },
   {
-    nombre: 'Dell Laptop 3535',
-    descripcion: 'Ri7 16Gb 1Tb 15',
+    nombre: 'Skytech Gaming',
+    descripcion: 'Ryzen 7 5800X 16GB 1TB 15',
     precio: '$699.99',
-    imagen: 'imgproductos/photo-1593642632823-8f785ba67e45.jpg'
+    imagen: 'imgComputers/Skytech.png'
   },
   {
     nombre: 'Dell Inspiron',
     descripcion: 'Intel i3 · 4GB RAM · 512GB',
     precio: '$399.99',
-    imagen: 'imgproductos/6.jpg'
+    imagen: ''
   },
   {
     nombre: 'Laptop Apple',
     descripcion: 'Ryzen 5 · 8GB RAM · 512GB SSD',
     precio: '$999.99',
-    imagen: 'imgproductos/images (1).jpg'
+    imagen: ''
   },
   {
     nombre: 'Acer Aspire 5',
     descripcion: 'Intel i3 · 4GB RAM · 256GB SSD',
     precio: '$449.99',
-    imagen: 'imgproductos/8.1.jpg'
+    imagen: ''
   },
   {
     nombre: 'HP Victus 15',
     descripcion: 'Ryzen 5 8645HS RTX4060 16GB 512GB 15.6" FHD IPS 144Hz',
     precio: '$999.99',
-    imagen: 'imgproductos/14.png'
+    imagen: ''
   },
   {
     nombre: 'Laptop Gamer HP VICTUS',
     descripcion: 'Ryzen 7 5800H 16GB 512GB RTX 3060 144HZ',
     precio: '$1199.99',
-    imagen: 'imgproductos/10.jpg'
+    imagen: ''
   },
   {
     nombre: 'Laptop LG',
     descripcion: 'Ryzen 5 · 12GB RAM · 512GB SSD',
     precio: '$1499.99',
-    imagen: 'imgproductos/11.jpg'
+    imagen: ''
   },
   {
     nombre: 'Laptop Samsung',
     descripcion: 'Intel i4 · 4GB RAM · 256GB',
     precio: '$749.99',
-    imagen: 'imgproductos/12.jpg'
+    imagen: ''
   }
 ];
 
@@ -101,7 +103,11 @@ productos = [
     { texto: 'Tarjeta 2' }
   ];
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private cartService: CartService
+  ) {}
 
   ngAfterViewInit() {
     // Filtro de búsqueda
@@ -137,6 +143,16 @@ productos = [
         card.style.transform = card.style.transform.replace(' scale(0.98)', ' scale(1.05)');
       });
     });
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart({
+    id: product.nombre,
+    name: product.nombre,
+    price: parseFloat(product.precio.replace('$', '')),
+    image: product.imagen,
+    quantity: 1
+  });
   }
 
 }

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { CommonModule } from '@angular/common';
+import { Footer } from '../../components/footer/footer';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Header, CommonModule],
+  imports: [Header, Footer, CommonModule, RouterLink],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
@@ -23,7 +25,7 @@ export class HomeComponent {
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
     }, 3000);
   }
-  
+
   scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

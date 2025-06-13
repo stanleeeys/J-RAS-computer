@@ -1,21 +1,32 @@
 <header class="app-header">
   <div class="header-container">
-    <div class="logo">
-      <img src="icons/Logo12.png" alt="J-RAS Logo" height="50">
-      <span>J-RAS</span>
+<div class="logo" routerLink="/" style="cursor: pointer;">
+  <img src="icons/Logo12.png" alt="J-RAS Logo" height="50">
+  <span>J-RAS</span>
+</div>
 
-
-    </div>
     <nav class="main-nav">
-      <a routerLink="/" routerLinkActive="active">Home</a>
-      <a routerLink="/about" routerLinkActive="active">About</a>
-      <a routerLink="/computer" routerLinkActive="active">Computer</a>
-      <a routerLink="/laptop" routerLinkActive="active">Laptop</a>
-      <a routerLink="/products" routerLinkActive="active">Categories</a>
-      <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+      <!-- Añadido: Contenedor para el indicador dinámico -->
+      <div class="nav-links-container">
+        <a routerLink="/"
+           routerLinkActive="active-page"
+           [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/about" routerLinkActive="active-page">About</a>
+        <a routerLink="/computer" routerLinkActive="active-page">Computer</a>
+        <a routerLink="/laptop" routerLinkActive="active-page">Laptop</a>
+        <a routerLink="/category" routerLinkActive="active-page">Categories</a>
+        <a routerLink="/contact" routerLinkActive="active-page">Contact Us</a>
+      </div>
+      <!-- Indicador visual -->
+      <div class="nav-indicator" [style.transform]="indicatorTransform"></div>
     </nav>
+    <a routerLink="/cart" class="cart-link">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart-count">{{ cartItemCount }}</span>
+</a>
+
     <div class="login">
-      <a routerLink="/login">Login</a>
+      <a routerLink="/Login" [class.active-page]="currentRoute === '/login'">Login</a>
     </div>
   </div>
 </header>

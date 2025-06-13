@@ -1,4 +1,28 @@
 
 <app-header></app-header>
-<p>Category works!</p>
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Explora Nuestras Categorías</h2>
+    <p class="section-subtitle">Encuentra el equipo perfecto para tus necesidades</p>
+
+    <div class="categories-grid">
+      <div *ngFor="let category of categories" class="category-card">
+        <div class="category-image">
+          <img [src]="category.image" [alt]="category.name">
+        </div>
+        <div class="category-content">
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+          <div class="category-meta">
+            <span>{{ category.count }} productos</span>
+            <a [routerLink]="['/', category.name.toLowerCase()]" class="category-link">
+              Ver todos →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
 

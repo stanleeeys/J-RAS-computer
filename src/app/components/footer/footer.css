@@ -1,0 +1,89 @@
+
+.tech-footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 2rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #3498db;
+    }
+  }
+
+  .buy-now-btn, .contact-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin: 0.3rem 0;
+    font-weight: bold;
+  }
+
+  .buy-now-btn {
+    background-color: #2ecc71;
+    color: white;
+  }
+
+  .contact-btn {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .social-media {
+    margin-top: 1rem;
+
+    a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background-color: #34495e;
+      color: #ecf0f1;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      margin-right: 0.5rem;
+
+      &:hover {
+        background-color: #3498db;
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #34495e;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
