@@ -7,6 +7,8 @@ import { Category } from './pages/category/category';
 import { ContactUs } from './pages/contact-us/contact-us';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
+import { Componentes } from './pages/componentes/componentes';
+import { Accesorios } from './pages/accesorios/accesorios';
 
 
 export const routes: Routes = [
@@ -18,9 +20,8 @@ export const routes: Routes = [
   {path: 'contact', component: ContactUs},
   {path: 'Login', component: Login},
   {path: 'register',component: Register},
-  {
-   path: 'cart',
-  loadComponent: () => import('./pages/cart/cart').then(m => m.CartComponent)
-  }
+  {path: 'cart',loadComponent: () => import('./pages/cart/cart').then(m => m.CartComponent)},
+  {path: 'componentes',component: Componentes},
+  {path: 'accesorios',component: Accesorios}
 
 ];

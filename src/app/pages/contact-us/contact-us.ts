@@ -13,7 +13,6 @@ import { RouterLink } from '@angular/router';
 })
 export class ContactUs {
   contactForm: any;
-
   submitted = false;
   loading = false;
 

@@ -12,17 +12,20 @@
            routerLinkActive="active-page"
            [routerLinkActiveOptions]="{ exact: true }">Home</a>
         <a routerLink="/about" routerLinkActive="active-page">About</a>
-        <a routerLink="/computer" routerLinkActive="active-page">Computer</a>
-        <a routerLink="/laptop" routerLinkActive="active-page">Laptop</a>
+        <!--<a routerLink="/computer" routerLinkActive="active-page">Computer</a>-->
+         <!--<a routerLink="/laptop" routerLinkActive="active-page">Laptop</a>-->
         <a routerLink="/category" routerLinkActive="active-page">Categories</a>
         <a routerLink="/contact" routerLinkActive="active-page">Contact Us</a>
       </div>
+
       <!-- Indicador visual -->
       <div class="nav-indicator" [style.transform]="indicatorTransform"></div>
     </nav>
-    <a routerLink="/cart" class="cart-link">
+   <a routerLink="/cart" class="cart-link" [class.added]="justAddeed">
   <i class="fas fa-shopping-cart"></i>
   <span class="cart-count">{{ cartItemCount }}</span>
+  
+
 </a>
 
     <div class="login">

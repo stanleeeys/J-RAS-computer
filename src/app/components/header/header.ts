@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink,Router, Navigation, NavigationEnd, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../services/cart';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
-  providers: [CartService]
+  
 })
 
 export class Header implements OnInit {
@@ -15,11 +16,16 @@ export class Header implements OnInit {
 currentRoute: string = '';
   indicatorTransform: string = 'translateX(0) scaleX(0)';
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private router: Router, private CartService: CartService) {}
+
+  justAddeed = false;
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe((items: any[]) => {
-      this.cartItemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+    this.CartService.cartItems$.subscribe(items => {
+  this.cartItemCount = items.reduce((count, item) => count + item.quantity, 0);
+   this.justAddeed = false;
+   this.justAddeed = true;
+    setTimeout(() => this.justAddeed = false, 400);
     });
 
     this.router.events.subscribe(event => {
@@ -29,6 +35,14 @@ currentRoute: string = '';
       }
     });
   }
+  mensaje = '';
+
+addToCart(product: any) {
+  this.CartService.addToCart(product);
+  this.mensaje = `${product.name} agregado al carrito!`;
+  setTimeout(() => this.mensaje = '', 3000);
+}
+
 
   updateIndicator() {
     // Timeout para esperar a que se aplique la clase active-page

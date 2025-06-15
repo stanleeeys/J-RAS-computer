@@ -19,22 +19,31 @@ export class CartService {
   cartItems$ = this.cartItems.asObservable();
 
   addToCart(product: any) {
-    const currentItems = this.cartItems.value;
-    const existingItem = currentItems.find(item => item.id === product.id);
+  const currentItems = this.cartItems.value;
+  const existingItem = currentItems.find(item => item.id === product.id);
 
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      currentItems.push({
+  let updatedItems;
+
+  if (existingItem) {
+    updatedItems = currentItems.map(item =>
+      item.id === product.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+  } else {
+    updatedItems = [
+      ...currentItems,
+      {
         id: product.id,
         name: product.name,
         price: product.price,
         quantity: 1,
         image: product.image
-      });
-    }
+      }
+    ];
+  }
 
-    this.cartItems.next([...currentItems]);
+  this.cartItems.next(updatedItems);
   }
 
   removeFromCart(productId: string) {

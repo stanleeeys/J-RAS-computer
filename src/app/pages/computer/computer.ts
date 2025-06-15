@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../components/footer/footer';
 import { CartService } from '../../services/cart';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-computer',
-  imports: [CommonModule,Header, Footer],
+  imports: [CommonModule,Header, Footer, RouterLink, FormsModule],
   standalone: true,
   templateUrl: './computer.html',
   styleUrl: './computer.css'
@@ -49,43 +50,43 @@ productos = [
     nombre: 'Dell Inspiron',
     descripcion: 'Intel i3 · 4GB RAM · 512GB',
     precio: '$399.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (1).png'
   },
   {
     nombre: 'Laptop Apple',
     descripcion: 'Ryzen 5 · 8GB RAM · 512GB SSD',
     precio: '$999.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (2).png'
   },
   {
     nombre: 'Acer Aspire 5',
     descripcion: 'Intel i3 · 4GB RAM · 256GB SSD',
     precio: '$449.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (3).png'
   },
   {
     nombre: 'HP Victus 15',
     descripcion: 'Ryzen 5 8645HS RTX4060 16GB 512GB 15.6" FHD IPS 144Hz',
     precio: '$999.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (4).png'
   },
   {
     nombre: 'Laptop Gamer HP VICTUS',
     descripcion: 'Ryzen 7 5800H 16GB 512GB RTX 3060 144HZ',
     precio: '$1199.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (5).png'
   },
   {
     nombre: 'Laptop LG',
     descripcion: 'Ryzen 5 · 12GB RAM · 512GB SSD',
     precio: '$1499.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu1 (6).png'
   },
   {
     nombre: 'Laptop Samsung',
     descripcion: 'Intel i4 · 4GB RAM · 256GB',
     precio: '$749.99',
-    imagen: ''
+    imagen: 'imgCategories/cpu.png'
   }
 ];
 
@@ -108,6 +109,7 @@ productos = [
     private el: ElementRef,
     private cartService: CartService
   ) {}
+  searchTerm: string = '';
 
   ngAfterViewInit() {
     // Filtro de búsqueda
@@ -120,7 +122,7 @@ productos = [
     });
 
     // Tarjetas 3D
-    const tarjetas = this.el.nativeElement.querySelectorAll('.tarjeta-3d');
+    /*const tarjetas = this.el.nativeElement.querySelectorAll('.tarjeta-3d');
     tarjetas.forEach((card: HTMLElement) => {
       this.renderer.listen(card, 'mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -142,7 +144,7 @@ productos = [
       this.renderer.listen(card, 'mouseup', () => {
         card.style.transform = card.style.transform.replace(' scale(0.98)', ' scale(1.05)');
       });
-    });
+    });*/
   }
 
   addToCart(product: any) {

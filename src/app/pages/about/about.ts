@@ -16,7 +16,7 @@ export class AboutComponent {
   productosCount: number = 0;
   aniosCount: number = 0;
 
-    private clientesFinal: number = 12500;
+  private clientesFinal: number = 12500;
   private productosFinal: number = 350;
   private aniosFinal: number = new Date().getFullYear() - 2015;
   private incrementSpeed: number = 50;

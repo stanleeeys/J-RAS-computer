@@ -1,19 +1,20 @@
 import { Component, ElementRef, ViewChild,Renderer2 } from '@angular/core';
-import { Header } from '../../components/header/header';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../components/footer/footer';
-import { CartService } from '../../services/cart';
+import { Header } from '../../components/header/header';
+import { CartService } from '../cart/cart';
 
 @Component({
   selector: 'app-laptop',
-  imports: [CommonModule, Footer, Header],
+  imports: [CommonModule, Footer, Header, RouterLink],
   standalone: true,
   templateUrl: './laptop.html',
   styleUrl: './laptop.css'
 })
 export class LaptopComponent {
-   @ViewChild('buscarInput') buscarInput!: ElementRef;
+  @ViewChild('buscarInput', { static: true }) buscarInput!: ElementRef;
+
 productos = [
   {
     nombre: 'HP ProBook 450 G7',
@@ -120,29 +121,7 @@ productos = [
     });
 
     // Tarjetas 3D
-    const tarjetas = this.el.nativeElement.querySelectorAll('.tarjeta-3d');
-    tarjetas.forEach((card: HTMLElement) => {
-      this.renderer.listen(card, 'mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateY = ((x / rect.width) - 0.5) * 20;
-        const rotateX = ((y / rect.height) - 0.5) * -20;
-        card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`;
-      });
 
-      this.renderer.listen(card, 'mouseleave', () => {
-        card.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
-      });
-
-      this.renderer.listen(card, 'mousedown', () => {
-        card.style.transform += ' scale(0.98)';
-      });
-
-      this.renderer.listen(card, 'mouseup', () => {
-        card.style.transform = card.style.transform.replace(' scale(0.98)', ' scale(1.05)');
-      });
-    });
   }
     addToCart(product: any) {
     this.cartService.addToCart({

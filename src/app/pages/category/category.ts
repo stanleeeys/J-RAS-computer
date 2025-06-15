@@ -18,28 +18,28 @@ export class Category {
       name: 'laptop',
       description: 'Portátiles para trabajo, gaming y diseño',
       image: 'imgCategories/7.jpg',
-      count: 24
+      count: 12
     },
     {
       id: 2,
       name: 'computer',
       description: 'Equipos de escritorio de alto rendimiento',
       image: 'imgCategories/Skytech.png',
-      count: 18
+      count: 12
     },
     {
       id: 3,
       name: 'Componentes',
       description: 'Tarjetas gráficas, procesadores y más',
       image: 'imgCategories/componentes.png',
-      count: 42
+      count: 12
     },
     {
       id: 4,
       name: 'Accesorios',
       description: 'Periféricos y complementos esenciales',
       image: 'imgCategories/accesorios.png',
-      count: 36
+      count: 12
     }
   ];
 }

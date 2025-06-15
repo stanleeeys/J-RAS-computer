@@ -25,3 +25,5 @@ export class CartComponent {
   }
 
 }
+
+export { CartService };

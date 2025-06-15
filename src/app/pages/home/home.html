@@ -1,70 +1,49 @@
 <app-header></app-header>
 
-<section class="hero-section">
-  <div class="hero-content">
-    <h2>Computer And Laptop</h2>
-    <h1><b>Accessories</b></h1>
-
-    <div class="hero-buttons">
-      <button class="hero-btn" routerLink="/buy-now">Buy Now</button>
-<button class="hero-btn outline" routerLink="/contact">Contact</button>
-
-    </div>
+<!-- Banner/Slider principal -->
+<div class="main-banner">
+  <button class="slider-arrow left" (click)="prevImage()">&#10094;</button>
+  <img [src]="images[currentIndex]" alt="Banner" class="banner-img">
+  <button class="slider-arrow right" (click)="nextImage()">&#10095;</button>
+  <div class="slider-dots">
+    <span *ngFor="let img of images; let i = index"
+          [class.active]="i === currentIndex"
+          (click)="goToImage(i)"></span>
   </div>
-  <div class="hero-image">
-    <img [src]="images[currentIndex]" alt="Computers and Laptops">
+</div>
 
-    <div class="hero-dots">
-      <span
-        class="dot"
-        *ngFor="let img of images; let i = index"
-        [class.active]="i === currentIndex">
-      </span>
+<!-- Categorías -->
+<div class="categories-section">
+  <div class="category-card" *ngFor="let cat of categories">
+    <a [routerLink]="cat.link">
+      <img [src]="cat.img" [alt]="cat.name" class="category-img">
+      <div class="category-name">{{ cat.name }}</div>
+    </a>
+  </div>
+</div>
+
+<section class="featured-products">
+  <h2>Featured products</h2>
+  <div class="featured-list">
+    <div class="featured-item" *ngFor="let product of featuredProducts">
+      <img [src]="product.image" [alt]="product.name">
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-price">${{ product.price }}</div>
+
+       <!--<button (click)="addToCart(product)">Agregar al carrito</button>-->
+
     </div>
   </div>
 </section>
-<section class="products-section">
-  <h2 class="products-title">OUR PRODUCTS</h2>
-  <div class="products-grid">
-    <div class="product-item">
-      <img src="images/product1.png" alt="Computer">
-      <div class="product-label">Computer</div>
+
+<section class="testimonials">
+  <h2>What our customers say</h2>
+  <div class="testimonial-list">
+    <div class="testimonial" *ngFor="let t of testimonials">
+      <p>"{{ t.text }}"</p>
+      <span>- {{ t.author }}</span>
     </div>
-    <div class="product-item">
-      <img src="images/product2.png" alt="Laptop">
-      <div class="product-label">Laptop</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product3.png" alt="Tablet">
-      <div class="product-label">Tablet</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product4.png" alt="Speakers">
-      <div class="product-label">Speakers</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product5.png" alt="Internet">
-      <div class="product-label">Internet</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product6.png" alt="Hardisk">
-      <div class="product-label">Hardisk</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product7.png" alt="Rams">
-      <div class="product-label">Rams</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product8.png" alt="Bettery">
-      <div class="product-label">Bettery</div>
-    </div>
-    <div class="product-item">
-      <img src="images/product9.png" alt="Drive">
-      <div class="product-label">Drive</div>
-    </div>
-  </div>
-  <div class="products-more">
-    <button class="see-more-btn" (click)="scrollToTop()">See More</button>
   </div>
 </section>
+
 <app-footer></app-footer>
