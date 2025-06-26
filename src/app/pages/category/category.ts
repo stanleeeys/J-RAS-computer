@@ -16,28 +16,28 @@ export class Category {
     {
       id: 1,
       name: 'laptop',
-      description: 'Portátiles para trabajo, gaming y diseño',
+      description: 'Laptops for work, gaming and design',
       image: 'imgCategories/7.jpg',
       count: 12
     },
     {
       id: 2,
       name: 'computer',
-      description: 'Equipos de escritorio de alto rendimiento',
+      description: 'High-performance desktop computers',
       image: 'imgCategories/Skytech.png',
       count: 12
     },
     {
       id: 3,
       name: 'Componentes',
-      description: 'Tarjetas gráficas, procesadores y más',
+      description: 'Graphics cards, processors and more',
       image: 'imgCategories/componentes.png',
-      count: 12
+      count: 8
     },
     {
       id: 4,
-      name: 'Accesorios',
-      description: 'Periféricos y complementos esenciales',
+      name: 'accesorios',
+      description: 'Essential peripherals and accessories',
       image: 'imgCategories/accesorios.png',
       count: 12
     }

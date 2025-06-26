@@ -6,23 +6,33 @@ import { catchError, tap, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class Auth {
-private apiUrl = 'https://tu-api.com/auth';
-  constructor(private http: HttpClient) { }
-  login(credentials: { email: string; password: string }) {
-    return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
-      tap((response: any) => {
-        localStorage.setItem('token', response.token);
-      }),
-      catchError(err => {
-        return throwError(() => new Error('Credenciales inválidas'));
-      })
-    );
+  private loginUrl = 'http://localhost:8080/api/auth/login';
+  private registrarUrl= 'http://localhost:8080/api/usuarios';
+
+   constructor(private http: HttpClient) {}
+
+  login(data: any) {
+    return this.http.post(this.loginUrl, data);
   }
-  register(userData: any) {
-    return this.http.post(`${this.apiUrl}/register`, userData).pipe(
-      catchError(err => {
-        return throwError(() => new Error('Error en el registro'));
-      })
-    );
+
+  register(data: any) {
+    return this.http.post(this.registrarUrl, data);
   }
+
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
 }

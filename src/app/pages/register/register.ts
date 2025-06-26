@@ -1,51 +1,56 @@
-import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../components/footer/footer';
 import { Header } from "../../components/header/header";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, RouterLink, Footer, ReactiveFormsModule, Header],
+  imports: [CommonModule, RouterLink, Footer, ReactiveFormsModule, Header, FormsModule],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
-export class Register {
-  registerForm: any;
+export class Register implements OnInit {
+   registerForm!: FormGroup;
+  successMessage = '';
 
-  successMessage: string | null = null;
-  errorMessage: string | null = null;
+  constructor(private fb: FormBuilder, private auth: Auth, private router: Router) {}
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: Auth,
-    private router: Router
-  ) {
+  ngOnInit() {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
+      nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      contrasena: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, { validators: this.passwordMatchValidator });
   }
 
-  passwordMatchValidator(form: any) {
-    return form.get('password').value === form.get('confirmPassword').value
-      ? null : { mismatch: true };
+  passwordMatchValidator(group: AbstractControl): { [key: string]: boolean } | null {
+    const password = group.get('contrasena')?.value;
+    const confirm = group.get('confirmPassword')?.value;
+    return password === confirm ? null : { mismatch: true };
   }
 
   onSubmit() {
     if (this.registerForm.valid) {
-      const { confirmPassword, ...userData } = this.registerForm.value;
-      this.authService.register(userData).subscribe({
+      const user = {
+        nombre: this.registerForm.value.nombre,
+        email: this.registerForm.value.email,
+        contrasena: this.registerForm.value.contrasena
+      };
+
+      this.auth.register(user).subscribe({
         next: () => {
-          this.successMessage = '¡Registro exitoso! Redirigiendo...';
-          setTimeout(() => this.router.navigate(['/']), 2000);
+          this.successMessage = 'Registro exitoso!';
+          this.router.navigate(['/Login']);
         },
-        error: (err) => this.errorMessage = err.message
+        error: err => {
+          console.error(err);
+        }
       });
     }
   }

@@ -16,29 +16,29 @@ export class Accesorios {
 productos = [
   {
     nombre: 'UTP',
-    descripcion: 'Cale convertidor UTP',
+    descripcion: ' UTP',
     precio: '$10',
     imagen: 'imgCategories/ADP0320.jpg'
   },
   {
     nombre: 'Headset',
-    descripcion: 'Escucha musica en alta calidad',
+    descripcion: 'Listen to musica ',
     precio: '$94',
     imagen: 'imgCategories/AUD0296.png'
   },
   {
     nombre: 'USB',
-    descripcion: 'Intel i9 · 32GB RAM · 1TB SSD',
+    descripcion: '5 TB',
     precio: '$399.99',
     imagen: 'imgCategories/USB0295.jpg'
   },
   {
     nombre: 'JBL',
-    descripcion: 'Intel Core i7 128GB 12GB RAM',
+    descripcion: 'Headset',
     precio: '$1249.99',
     imagen: 'imgCategories/AUD0409.png'
   },
-  
+
 ];
 
   productosFiltrados = [...this.productos];

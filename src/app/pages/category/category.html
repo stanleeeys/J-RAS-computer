@@ -2,8 +2,8 @@
 <app-header></app-header>
 <section class="categories-section">
   <div class="container">
-    <h2 class="section-title">Explora Nuestras Categorías</h2>
-    <p class="section-subtitle">Encuentra el equipo perfecto para tus necesidades</p>
+    <h2 class="section-title">Explore Our Categories</h2>
+    <p class="section-subtitle">Find the perfect team for your needs</p>
 
     <div class="categories-grid">
       <div *ngFor="let category of categories" class="category-card">
@@ -14,9 +14,9 @@
           <h3>{{ category.name }}</h3>
           <p>{{ category.description }}</p>
           <div class="category-meta">
-            <span>{{ category.count }} productos</span>
+            <span>{{ category.count }} products</span>
             <a [routerLink]="['/', category.name.toLowerCase()]" class="category-link">
-              Ver todos →
+              See all →
             </a>
           </div>
         </div>

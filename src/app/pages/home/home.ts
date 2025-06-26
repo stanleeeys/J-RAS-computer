@@ -42,12 +42,12 @@ testimonials = [
 
   categories = [
     {
-      name: 'Componentes',
+      name: 'Components',
       img: 'imgCategories/componentes.png',
       link: '/componentes'
     },
     {
-      name: 'Accesorios',
+      name: 'accessories',
       img: 'imgCategories/accesorios.png',
       link: '/accesorios'
     },
