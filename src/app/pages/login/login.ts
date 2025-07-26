@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { Auth } from '../../services/auth';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,7 @@ export class Login {
 
   constructor(
     private fb: FormBuilder,
-    private authService: Auth,
+    private authService: AuthService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -32,13 +32,19 @@ export class Login {
   onSubmit() {
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => {
-          this.router.navigate(['/dashboard']);
+        next: (res: any) => {
+           this.authService.saveToken(res.token);
+          this.router.navigate(['/']);
         },
-        error: (err: { error: { message: string | null; }; }) => {
-          this.errorMessage = err.error.message
-        }
+        error: (err) => {
+        this.errorMessage = err.error || "Error al iniciar sesión";
+      }
       });
     }
   }
+  ngOnInit() {
+  if(this.authService.isLoggedIn()) {
+    this.router.navigate(['/dashboard']); // O a la página principal
+  }
+}
 }

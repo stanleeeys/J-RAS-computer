@@ -2,21 +2,21 @@
 <app-header></app-header>
 <section class="categories-section">
   <div class="container">
-    <h2 class="section-title">Explore Our Categories</h2>
-    <p class="section-subtitle">Find the perfect team for your needs</p>
+    <h2 class="section-title">Explora nuestras categorías</h2>
+    <p class="section-subtitle">Encuentra el equipo perfecto para tus necesidades</p>
 
     <div class="categories-grid">
-      <div *ngFor="let category of categories" class="category-card">
+      <div *ngFor="let category of categorias" class="category-card">
         <div class="category-image">
-          <img [src]="category.image" [alt]="category.name">
+          <img [src]="category.imagen_url" [alt]="category.nombre">
         </div>
         <div class="category-content">
-          <h3>{{ category.name }}</h3>
-          <p>{{ category.description }}</p>
+          <h3>{{ category.nombre }}</h3>
+
           <div class="category-meta">
-            <span>{{ category.count }} products</span>
-            <a [routerLink]="['/', category.name.toLowerCase()]" class="category-link">
-              See all →
+            <span>{{ category.nombre }} productos</span>
+            <a [routerLink]="['/', category.nombre.toLowerCase()]" class="category-link">
+              Ver todos →
             </a>
           </div>
         </div>

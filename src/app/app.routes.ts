@@ -9,6 +9,7 @@ import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Componentes } from './pages/componentes/componentes';
 import { Accesorios } from './pages/accesorios/accesorios';
+import { Dashboard } from './dashboard/dashboard';
 
 
 export const routes: Routes = [
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path: 'register',component: Register},
   {path: 'cart',loadComponent: () => import('./pages/cart/cart').then(m => m.CartComponent)},
   {path: 'componentes',component: Componentes},
-  {path: 'accesorios',component: Accesorios}
+  {path: 'accesorios',component: Accesorios},
+  { path: 'dashboard', component: Dashboard },
 
 ];

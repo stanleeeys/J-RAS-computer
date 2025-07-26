@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Auth } from '../../services/auth';
+import { AuthService } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../components/footer/footer';
@@ -18,7 +18,7 @@ export class Register implements OnInit {
    registerForm!: FormGroup;
   successMessage = '';
 
-  constructor(private fb: FormBuilder, private auth: Auth, private router: Router) {}
+  constructor(private fb: FormBuilder, private AuthService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -43,7 +43,7 @@ export class Register implements OnInit {
         contrasena: this.registerForm.value.contrasena
       };
 
-      this.auth.register(user).subscribe({
+      this.AuthService.register(user).subscribe({
         next: () => {
           this.successMessage = 'Registro exitoso!';
           this.router.navigate(['/Login']);
