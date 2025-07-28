@@ -10,6 +10,7 @@ import { Register } from './pages/register/register';
 import { Componentes } from './pages/componentes/componentes';
 import { Accesorios } from './pages/accesorios/accesorios';
 import { Dashboard } from './dashboard/dashboard';
+import { ProductosPorCategoria } from './pages/productos-por-categoria/productos-por-categoria';
 
 
 export const routes: Routes = [
@@ -25,5 +26,7 @@ export const routes: Routes = [
   {path: 'componentes',component: Componentes},
   {path: 'accesorios',component: Accesorios},
   { path: 'dashboard', component: Dashboard },
+  { path: 'categoria/:id', component: ProductosPorCategoria },
+
 
 ];

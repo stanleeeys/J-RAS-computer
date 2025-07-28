@@ -10,12 +10,12 @@
       <div class="nav-links-container">
         <a routerLink="/"
            routerLinkActive="active-page"
-           [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a routerLink="/about" routerLinkActive="active-page">About</a>
+           [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLink="/about" routerLinkActive="active-page">Acerca de</a>
         <!--<a routerLink="/computer" routerLinkActive="active-page">Computer</a>-->
          <!--<a routerLink="/laptop" routerLinkActive="active-page">Laptop</a>-->
-        <a routerLink="/category" routerLinkActive="active-page">Categories</a>
-        <a routerLink="/contact" routerLinkActive="active-page">Contact Us</a>
+        <a routerLink="/category" routerLinkActive="active-page">Categorías</a>
+        <a routerLink="/contact" routerLinkActive="active-page">Contáctanos</a>
       </div>
 
       <!-- Indicador visual -->
@@ -24,12 +24,12 @@
    <a routerLink="/cart" class="cart-link" [class.added]="justAddeed">
   <i class="fas fa-shopping-cart"></i>
   <span class="cart-count">{{ cartItemCount }}</span>
-  
+
 
 </a>
 
     <div class="login">
-      <a routerLink="/Login" [class.active-page]="currentRoute === '/login'">Login</a>
+      <a routerLink="/Login" [class.active-page]="currentRoute === '/login'">Iniciar sesión</a>
     </div>
   </div>
 </header>

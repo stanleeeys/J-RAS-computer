@@ -15,7 +15,7 @@
 
           <div class="category-meta">
             <span>{{ category.nombre }} productos</span>
-            <a [routerLink]="['/', category.nombre.toLowerCase()]" class="category-link">
+            <a [routerLink]="['/categoria', category.id]" class="category-link">
               Ver todos →
             </a>
           </div>
